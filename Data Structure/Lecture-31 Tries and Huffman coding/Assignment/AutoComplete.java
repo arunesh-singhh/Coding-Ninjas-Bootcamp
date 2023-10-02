@@ -65,5 +65,4 @@ public class AutoComplete {
 			print(root.children[i],output);
 		}
 	}
-
 }
