@@ -26,7 +26,7 @@ public class takeTreeInputImproved extends printBinaryTree {
         BinaryTreeNode<Integer> rightChild = inputTree(false, rootData, false);
         root.left = leftChild;
         root.right = rightChild;
-
+        
         return root;
     }
 

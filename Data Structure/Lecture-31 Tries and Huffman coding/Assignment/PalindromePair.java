@@ -42,6 +42,7 @@ public class PalindromePair {
 	public boolean search(String word) {
 		return search(root,word);
 	}
+	
 
 	/*..................... Palindrome Pair................... */
 
