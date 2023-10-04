@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ReturnKeypadCode {
+public class PrintKeypad {
     
     public static String getOptions(int digit){
         if (digit == 2) {
@@ -30,35 +30,26 @@ public class ReturnKeypadCode {
         return "";
     }
 
-    public static String[] KeypadCombination(int input){
+    public static void printKeypadCombination(int input, String str){
         if (input == 0) {
-            String[] output = new String[1];
-            output[0] = "";
-            return output;
+            System.out.println(str);
+            return;
         }
-        String[] smallOutput = KeypadCombination(input/10);
+    
         int lastDigit = input % 10;
         String lastDigitOption = getOptions(lastDigit);
-        String[] output = new String[smallOutput.length * lastDigitOption.length()];
 
-        int k = 0;
-        for (int i = 0; i < smallOutput.length; i++) {
-            for (int j = 0; j < lastDigitOption.length(); j++) {
-                output[k] = smallOutput[i] + lastDigitOption.charAt(j);
-                k++;
-            }
+        for (int j = 0; j < lastDigitOption.length(); j++) {
+            printKeypadCombination(input/10, str + lastDigitOption.charAt(j));
         }
-        return output;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number: ");
         int input = sc.nextInt();
-        String[] ans = KeypadCombination(input);
-        for (String string : ans) {
-            System.out.println(string);
-        }
+        printKeypadCombination(input, "");
         sc.close();
     }
 }
+
